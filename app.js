@@ -44,7 +44,7 @@ if (process.env.RUNNER_DATADIR) {
 https
   .get(uri, (res) => {
     if (res.statusCode == 200) {
-      successResult("200 OK");
+      successResult("Got valid status code: 200 OK");
     } else {
       errorResult("Got invalid status code");
     }
@@ -61,29 +61,29 @@ https
 
 // error result - will output to STDOUT JSON with info about failed test
 function errorResult(message) {
-  console.log({
+  console.log(JSON.stringify({
     "type": "result",
     "result": {
       "status": "error",
       "errorMessage": message,
     },
-  });
+  }));
 }
 
 // successResult - will output to STDOUT JSON with info sucessful results
 function successResult(output) {
-  console.log({
+  console.log(JSON.stringify({
     "type": "result",
     "result": {
       "status": "success",
       "output": output,
     },
-  });
+  }));
 }
 
 function error(message) {
-  console.log({
+  console.log(JSON.stringify({
     "type": "error",
     "content": message,
-  });
+  }));
 }
