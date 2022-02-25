@@ -62,10 +62,10 @@ https
 // error result - will output to STDOUT JSON with info about failed test
 function errorResult(message) {
   console.log({
-    type: "result",
-    result: {
-      status: "error",
-      errorMessage: message,
+    "type": "result",
+    "result": {
+      "status": "error",
+      "errorMessage": message,
     },
   });
 }
@@ -73,17 +73,17 @@ function errorResult(message) {
 // successResult - will output to STDOUT JSON with info sucessful results
 function successResult(output) {
   console.log({
-    type: "result",
-    result: {
-      status: "success",
-      output: output,
+    "type": "result",
+    "result": {
+      "status": "success",
+      "output": output,
     },
   });
 }
 
 function error(message) {
   console.log({
-    type: "error",
-    content: message,
+    "type": "error",
+    "content": message,
   });
 }
