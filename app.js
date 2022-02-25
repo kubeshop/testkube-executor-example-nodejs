@@ -67,7 +67,7 @@ function errorResult(message) {
   }));
 }
 
-// successResult - will output to STDOUT JSON with info sucessful results
+// successResult - will output to STDOUT JSON with info about sucessful test
 function successResult(output) {
   console.log(JSON.stringify({
     "type": "result",
@@ -78,6 +78,7 @@ function successResult(output) {
   }));
 }
 
+// error will return error info not related to test itself (some issues with executor)
 function error(message) {
   console.log(JSON.stringify({
     "type": "error",
