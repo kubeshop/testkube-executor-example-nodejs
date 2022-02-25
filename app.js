@@ -14,10 +14,12 @@ if (args.length == 0) {
 var uri;
 
 // To simplify reading test data Testkube also stores test content (file,uri,git,whatever)
-// in directory in `RUNNER_DATADIR` env test contents like file or git based will be passed
-// in volume and mounted in for string and uri - file will be saved in data directory (/data by default)
-// file name will be `/data/test-content` so we can read it easily 
-// for git file and git dir there will be files/dirs checked out in /data dir - you need to handle them
+// Testkube will store it's files and directories in directory defined by `RUNNER_DATADIR` env 
+// And will save `test-content` file for:
+// - string content (e.g. postman collection)
+// - uri (testkube will get content of file defined by uri)
+// In case of git related content: 
+// - testkube will checkout repo content in that directory
 if (process.env.RUNNER_DATADIR) {
   const testContentPath = path.join(process.env.RUNNER_DATADIR, "test-content");
   // let's read test content (URI in our example) from file
