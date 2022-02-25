@@ -21,10 +21,7 @@ var uri;
 if (process.env.RUNNER_DATADIR) {
   const testContentPath = path.join(process.env.RUNNER_DATADIR, "test-content");
   // let's read test content (URI in our example) from file
-  uri = fs.readFileSync(testContentPath, {
-    encoding: "utf8",
-    flag: "r",
-  });
+  uri = fs.readFileSync(testContentPath, { encoding: "utf8", flag: "r"});
 }
 
 // execution is passed as first argument to binary and it contains information
@@ -54,9 +51,9 @@ https
   });
 
 // =====================================================================================
-// result data structures
+// result helper functions
 // see at ExecutorOutput OpenAPI spec from https://kubeshop.github.io/testkube/openapi/
-// if your language has OpenAPI spec generators - you can generate those easily
+// if your language has OpenAPI spec generators - you can generate them easily
 // =====================================================================================
 
 // error result - will output to STDOUT JSON with info about failed test
