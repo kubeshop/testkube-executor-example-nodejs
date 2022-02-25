@@ -20,11 +20,14 @@ var uri;
 // - uri (testkube will get content of file defined by uri)
 // In case of git related content: 
 // - testkube will checkout repo content in that directory
-if (process.env.RUNNER_DATADIR) {
-  const testContentPath = path.join(process.env.RUNNER_DATADIR, "test-content");
-  // let's read test content (URI in our example) from file
-  uri = fs.readFileSync(testContentPath, { encoding: "utf8", flag: "r"});
+if (!process.env.RUNNER_DATADIR) {
+  error("No valid data directory detected");
+  process.exit(1);
 }
+
+const testContentPath = path.join(process.env.RUNNER_DATADIR, "test-content");
+// let's read test content (URI in our example) from file
+uri = fs.readFileSync(testContentPath, { encoding: "utf8", flag: "r"});
 
 // execution is passed as first argument to binary and it contains information
 // about what to run in context of your executor (executor is choosen by type in CRD)
