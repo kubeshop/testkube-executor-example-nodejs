@@ -1,0 +1,11 @@
+apiVersion: executor.testkube.io/v1
+kind: Executor
+metadata:
+  name: example-nodejs-executor
+  namespace: testkube
+spec:
+  executor_type: job
+  features: []
+  image: kubeshop/testkube-executor-example-nodejs:latest
+  types:
+    - example/test
