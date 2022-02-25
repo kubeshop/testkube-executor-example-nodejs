@@ -16,7 +16,7 @@ var uri;
 // To simplify reading test data Testkube also stores test content (file,uri,git,whatever)
 // Testkube will store it's files and directories in directory defined by `RUNNER_DATADIR` env 
 // And will save `test-content` file for:
-// - string content (e.g. postman collection)
+// - string content (e.g. postman collection is passed as string content read from json file)
 // - uri (testkube will get content of file defined by uri)
 // In case of git related content: 
 // - testkube will checkout repo content in that directory
